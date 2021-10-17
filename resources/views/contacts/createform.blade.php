@@ -9,19 +9,29 @@
 	<body>
 		<div class="container  mt-5">
 			<h1 class="text-center">Add Person's Contact Details</h1>
-		<form method="POST" action="{{route('storedetails')}}" class=" mx-auto w-50 mt-3">
-			@csrf
-			<div class="mb-3">
-				<label for="name" class="form-label">Name</label>
-				<input type="text" class="form-control" id="name" name="name" required>
-			</div>
-			<div class="mb-3">
-				<label for="number" class="form-label">Number</label>
-				<input type="number" class="form-control" id="number" name="number" required>
-			</div>
-			<button type="submit" class="btn btn-primary">Save</button>
-			<a href="{{route('showcontacts')}}" class="btn btn-primary">Back</a>
-		</form>
+			<form method="POST" action="{{route('storedetails')}}" class=" mx-auto w-50 mt-3">
+				@csrf
+				<div class="mb-3">
+					<label for="name" class="form-label">Name</label>
+					<input type="text" class="form-control" id="name" name="name" required autofocus>
+					<div class="text-danger">
+						@error('name')
+						{{$message}} <br>
+						@enderror
+					</div>
+				</div>
+				<div class="mb-3">
+					<label for="number" class="form-label">Number</label>
+					<input type="number" class="form-control" id="number" name="number" required>
+					<div class="text-danger">
+						@error('number')
+						{{$message}} <br>
+						@enderror
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Save</button>
+				<a href="{{route('showcontacts')}}" class="btn btn-primary">Back</a>
+			</form>
 		</div>
 	</body>
 </html>

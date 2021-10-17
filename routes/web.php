@@ -14,11 +14,11 @@ use App\Http\Controllers\ContactsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/showcontacts' , [ContactsController::class , 'index'])->name('showcontacts');
+Route::get('/' , [ContactsController::class , 'index'])->name('showcontacts');
 Route::get('/create' , [ContactsController::class , 'create'])->name('addcontact');
 Route::post('/store' , [ContactsController::class , 'store'])->name('storedetails');
 Route::get('/csvfile' , [ContactsController::class , 'exportIntoCSV'])->name('getcsv');
